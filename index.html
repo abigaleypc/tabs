@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-size: 0;
+    }
+
+    body {
+      padding: 50px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 30px;
+    }
+
+    a:hover {
+      cursor: pointer;
+    }
+
+    .tab {
+      font-size: 25px;
+      width: 200px;
+      height: 70px;
+      display: inline-block;
+      line-height: 70px;
+      text-align: center;
+
+      border: 4px solid #707070;
+      border-left: 0;
+      position: relative;
+    }
+
+    .tab:first-child {
+      border-left: 4px solid #707070;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+
+    .tab:last-child {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    .tab:not(:first-child)::before {
+      content: '';
+      display: block;
+      top: -4px;
+      left: -4px;
+      width: 4px;
+      height: 78px;
+      position: absolute;
+      background-color: #707070;
+    }
+
+    .active {
+      border-color: salmon;
+      box-shadow: -1px 0 0 0 salmon;
+      z-index: 1;
+      color: salmon
+    }
+
+    .active:first-child {
+      border-color: salmon;
+    }
+
+
+    .active::before {
+      background-color: salmon !important;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="tabs">
+    <a onclick="onChange(0)" class="tab active">北京</a>
+    <a onclick="onChange(1)" class="tab">上海</a>
+    <a onclick="onChange(2)" class="tab">深圳</a>
+  </div>
+  <script>
+    function onChange(num) {
+      let tabs = Array.from(document.getElementsByClassName('tab'))
+      tabs.forEach(it => {
+        it.className = 'tab';
+      });
+      tabs[num].className += ' active';
+    }
+  </script>
+</body>
+
+</html>
