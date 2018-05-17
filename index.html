@@ -70,9 +70,8 @@
     }
 
 
-    .active::before {
-      background-color: salmon !important;
-
+    .active:not(:first-child)::before {
+      background-color: salmon;
     }
   </style>
 </head>
